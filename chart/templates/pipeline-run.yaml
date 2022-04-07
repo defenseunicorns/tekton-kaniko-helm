@@ -7,7 +7,7 @@ spec:
     name: kaniko-test-pipeline
   params:
   - name: image
-    value: {{ .Values.image.repository }}/{{ .Values.image.name }}:{{ .Values.image.tag | default .Chart.AppVersion }}
+    value: {{ .Values.image.repository }}/{{ .Values.image.name }}:{{ .Values.image.tag }}
   workspaces:
   - name: shared-workspace
     persistentvolumeclaim:

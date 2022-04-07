@@ -6,7 +6,7 @@ image:
   repository: ghcr.io
   name: defenseunicorns/dash-days/kaniko-nocode
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "latest"
+  tag: ""
 
 params:
   url: "https://github.com/kelseyhightower/nocode"
