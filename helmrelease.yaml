@@ -20,7 +20,7 @@ spec:
   interval: 1m0s
   chart:
     spec:
-      chart: tekton-kaniko
+      chart: chart
       sourceRef:
         kind: GitRepository
         name: tekton-kaniko
