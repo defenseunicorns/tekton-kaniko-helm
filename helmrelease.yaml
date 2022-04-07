@@ -1,0 +1,33 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: GitRepository
+metadata:
+  name: tekton-kaniko
+  namespace: flux-system
+spec:
+  interval: 1m0s
+  ref:
+    branch: main
+  url: https://github.com/defenseunicorns/tekton-kaniko-helm
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: tekton-kaniko
+  namespace: tekton-pipelines
+spec:
+  targetNamespace: tekton-pipelines
+  interval: 1m0s
+  chart:
+    spec:
+      chart: tekton-kaniko
+      sourceRef:
+        kind: GitRepository
+        name: tekton-kaniko
+        namespace: flux-system
+      version: '*'
+    values:
+  # valuesFrom:
+  #   - name: kaniko-values
+  #     kind: ConfigMap
+  #     valuesKey: values.yaml
