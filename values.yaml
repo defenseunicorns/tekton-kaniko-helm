@@ -1,0 +1,14 @@
+# Default values for tekton-kaniko.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+image:
+  repository: ghcr.io
+  name: defenseunicorns/dash-days/kaniko-nocode
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "latest"
+
+params:
+  url: "https://github.com/kelseyhightower/nocode"
+
+imagePullSecrets: regcred
