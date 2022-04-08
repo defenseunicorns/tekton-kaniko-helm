@@ -11,9 +11,9 @@ spec:
     - name: url
       type: string
       description: Url to git repo to clone
-    - name: package
+    - name: jsonPath
       type: string
-      description: Path to package
+      description: Path to package.json
     - name: test
       type: string
       description: npm command to run
