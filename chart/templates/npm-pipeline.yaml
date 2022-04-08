@@ -14,9 +14,9 @@ spec:
     - name: path_context
       type: string
       description: Path to package.json
-    # - name: args
-    #   type: array
-    #   description: npm command to run
+    - name: args
+      type: array
+      description: npm command to run
   tasks:
   - name: fetch-repository
     taskRef:
@@ -42,8 +42,8 @@ spec:
     params:
     - name: PATH_CONTEXT
       value: "$(params.path_context)"
-    # - name: args
-    #   value: "$(params.args)"
+    - name: ARGS
+      value: "$(params.args)"
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim

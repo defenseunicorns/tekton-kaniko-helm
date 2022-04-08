@@ -11,8 +11,8 @@ spec:
     value: "https://github.com/AustinAbro321/node_test"
   - name: path_context
     value: "server/"
-  # - name: args
-  #   value: ["test"]
+  - name: args
+    value: ["test"]
   workspaces:
   - name: shared-workspace
     persistentvolumeclaim:
