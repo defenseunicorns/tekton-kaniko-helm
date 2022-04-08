@@ -15,30 +15,30 @@ spec:
       type: string
       description: Path to package
   tasks:
-    - name: fetch-repository
-      taskRef:
-        name: git-clone
-      workspaces:
-        - name: output
-          workspace: shared-workspace
-      params:
-        - name: url
-          value: "$(params.url)"
-        - name: subdirectory
-          value: ""
-        - name: deleteExisting
-          value: "true"
-    - name: golang-test
-      taskRef:
-        name: golang-test
-      runAfter:
-        - fetch-repository
-      workspaces:
-        - name: source
-          workspace: shared-workspace
-      params:
-        - name: package
-          value: "$(params.package)"
+  - name: fetch-repository
+    taskRef:
+      name: git-clone
+    workspaces:
+    - name: output
+      workspace: shared-workspace
+    params:
+    - name: url
+      value: "$(params.url)"
+    - name: subdirectory
+      value: ""
+    - name: deleteExisting
+      value: "true"
+  - name: golang-test
+    taskRef:
+      name: golang-test
+    runAfter:
+    - fetch-repository
+    workspaces:
+    - name: source
+      workspace: shared-workspace
+    params:
+    - name: package
+      value: "$(params.package)"
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
