@@ -12,7 +12,7 @@ spec:
   - name: path_context
     value: "server/"
   - name: args
-    value: ["test"]
+    value: "test"
   workspaces:
   - name: shared-workspace
     persistentvolumeclaim:
