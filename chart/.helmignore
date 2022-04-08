@@ -21,5 +21,3 @@
 .idea/
 *.tmproj
 .vscode/
-pipeline.yaml
-pipeline-run.yaml
