@@ -33,7 +33,7 @@ spec:
       value: "true"
   - name: npm-test
     taskRef:
-      name: npm-run
+      name: npm
     runAfter:
     - fetch-repository
     workspaces:
