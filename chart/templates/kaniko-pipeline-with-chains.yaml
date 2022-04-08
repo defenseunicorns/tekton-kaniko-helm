@@ -23,7 +23,7 @@ spec:
       value: ""
     - name: deleteExisting
       value: "true"
-  - name: kaniko
+  - name: kaniko-chains
     taskRef:
       name: kaniko-chains
     runAfter:
@@ -51,7 +51,7 @@ spec:
     - kaniko
     params:
     - name: digest
-      value: $(tasks.kaniko.results.IMAGE_DIGEST)
+      value: $(tasks.kaniko-chains.results.IMAGE_DIGEST)
     taskSpec:
       params:
       - name: digest
@@ -66,10 +66,10 @@ spec:
           esac
   - name: verify-url
     runAfter:
-    - kaniko
+    - kaniko-chains
     params:
     - name: url
-      value: $(tasks.kaniko.results.IMAGE_URL)
+      value: $(tasks.kaniko-chains.results.IMAGE_URL)
     taskSpec:
       params:
       - name: url
