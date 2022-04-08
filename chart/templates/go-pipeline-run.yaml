@@ -8,9 +8,9 @@ spec:
     name: golang-test-pipeline
   params:
     - name: "url"
-      value: "{{ .Values.params.go-pipeline-url }}"
+      value: "https://github.com/justin-lf/golang-tekton-hello-world"
     - name: "package"
-      value: "{{ .Values.params.go-package }}"
+      value: "github.com/justin-lf/golang-tekton-hello-world"
   workspaces:
     - name: shared-workspace
       persistentvolumeclaim:
