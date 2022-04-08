@@ -40,7 +40,7 @@ spec:
     - name: source
       workspace: shared-workspace
     params:
-    - name: package
+    - name: path_context
       value: "$(params.path_context)"
     # - name: args
     #   value: "$(params.args)"
