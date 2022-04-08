@@ -43,7 +43,7 @@ spec:
     - name: PATH_CONTEXT
       value: "$(params.path_context)"
     - name: ARGS
-      value: "$(params.args)"
+      value: $(params.args)
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
