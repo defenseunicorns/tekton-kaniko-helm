@@ -7,14 +7,14 @@ spec:
   pipelineRef:
     name: golang-test-pipeline
   params:
-    - name: "url"
-      value: "https://github.com/justin-lf/golang-tekton-hello-world"
-    - name: "package"
-      value: "github.com/justin-lf/golang-tekton-hello-world"
+  - name: "url"
+    value: "https://github.com/justin-lf/golang-tekton-hello-world"
+  - name: "package"
+    value: "github.com/justin-lf/golang-tekton-hello-world"
   workspaces:
-    - name: shared-workspace
-      persistentvolumeclaim:
-        claimName: golang-source-pvc
-    - name: nexuscreds
-      secret:
-        secretName: regcred
+  - name: shared-workspace
+    persistentvolumeclaim:
+      claimName: golang-source-pvc
+  - name: nexuscreds
+    secret:
+      secretName: regcred
