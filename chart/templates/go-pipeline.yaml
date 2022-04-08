@@ -29,6 +29,8 @@ spec:
         - name: deleteExisting
           value: "true"
     - name: golang-test
+      taskRef:
+        name: golang-test
       runAfter:
         - fetch-repository
       workspaces:
