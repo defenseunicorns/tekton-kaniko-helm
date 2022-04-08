@@ -1,0 +1,57 @@
+---
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: npm-test-pipeline
+spec:
+  workspaces:
+    - name: shared-workspace
+    #- name: nexuscreds we will change this to registry creds
+  params:
+    - name: url
+      type: string
+      description: Url to git repo to clone
+    - name: package
+      type: string
+      description: Path to package
+    - name: test
+      type: string
+      description: npm command to run
+  tasks:
+  - name: fetch-repository
+    taskRef:
+      name: git-clone
+    workspaces:
+    - name: output
+      workspace: shared-workspace
+    params:
+    - name: url
+      value: "$(params.url)"
+    - name: subdirectory
+      value: ""
+    - name: deleteExisting
+      value: "true"
+  - name: npm-test
+    taskRef:
+      name: npm-run
+    runAfter:
+    - fetch-repository
+    workspaces:
+    - name: source
+      workspace: shared-workspace
+    params:
+    - name: package
+      value: "$(params.jsonPath)"
+    - name: args
+      value: "$(params.test)"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: npm-source-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 500Mi

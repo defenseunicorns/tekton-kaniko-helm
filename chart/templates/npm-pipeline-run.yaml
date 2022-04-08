@@ -1,0 +1,19 @@
+---
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  name: npm-test-pipeline-run
+spec:
+  pipelineRef:
+    name: npm-test-pipeline
+  params:
+  - name: url
+    value: "https://github.com/AustinAbro321/node_test"
+  - name: jsonPath
+    value: "github.com/AustinAbro321/node_test/server/package.json"
+  - name: args
+    value: "test"
+  workspaces:
+  - name: shared-workspace
+    persistentvolumeclaim:
+      claimName: npm-source-pvc
