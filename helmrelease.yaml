@@ -27,11 +27,11 @@ spec:
         namespace: flux-system
       version: '*'
     values:
-  upgrade:
-    remediation:
-      retries: 5
-      remediateLastFailure: true
-    cleanupOnFail: true
+  # upgrade:
+    # remediation:
+    #   retries: 5
+    #   remediateLastFailure: true
+    # cleanupOnFail: true
 
   # valuesFrom:
   #   - name: kaniko-values
