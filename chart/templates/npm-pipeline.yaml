@@ -14,7 +14,7 @@ spec:
     - name: jsonPath
       type: string
       description: Path to package.json
-    - name: test
+    - name: args
       type: string
       description: npm command to run
   tasks:
