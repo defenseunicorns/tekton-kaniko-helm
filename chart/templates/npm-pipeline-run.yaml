@@ -9,10 +9,10 @@ spec:
   params:
   - name: url
     value: "https://github.com/AustinAbro321/node_test"
-  - name: jsonPath
-    value: "github.com/AustinAbro321/node_test/server/package.json"
+  - name: path_context
+    value: "server/"
   - name: args
-    value: "test"
+    value: ["test"]
   workspaces:
   - name: shared-workspace
     persistentvolumeclaim:

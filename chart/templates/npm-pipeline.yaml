@@ -11,7 +11,7 @@ spec:
     - name: url
       type: string
       description: Url to git repo to clone
-    - name: jsonPath
+    - name: path_context
       type: string
       description: Path to package.json
     - name: args
@@ -41,7 +41,7 @@ spec:
       workspace: shared-workspace
     params:
     - name: package
-      value: "$(params.jsonPath)"
+      value: "$(params.path_context)"
     - name: args
       value: "$(params.args)"
 ---
