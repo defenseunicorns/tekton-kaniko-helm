@@ -15,7 +15,7 @@ spec:
       type: string
       description: Path to package.json
     - name: args
-      type: string
+      type: array
       description: npm command to run
   tasks:
   - name: fetch-repository
