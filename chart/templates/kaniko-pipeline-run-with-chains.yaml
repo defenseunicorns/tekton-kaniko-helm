@@ -1,0 +1,18 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  name: kaniko-test-pipeline-run-with-chains
+spec:
+  pipelineRef:
+    name: kaniko-test-pipeline-with-chains
+  params:
+  - name: image
+    value: {{ .Values.image.repository }}/kaniko-chains/{{ .Values.image.name }}
+  workspaces:
+  - name: shared-workspace
+    persistentvolumeclaim:
+      claimName: kaniko-source-pvc
+  - name: registry-creds
+    secret:
+      secretName: {{ .Values.imagePullSecrets }}
+ 
