@@ -44,6 +44,7 @@ spec:
       value: "$(params.path_context)"
     - name: ARGS
       value: 
+        - "install"
         - $(params.args)
 ---
 apiVersion: v1
